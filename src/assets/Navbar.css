@@ -1,6 +1,4 @@
-.teal.darken-1 {
-    text-align: center !important;
-}
+
 
 .teal.darken-1 ul {
     display: flex;
@@ -8,5 +6,18 @@
 }
 
 .search-button {
+    display: flex;
+    justify-content: space-around;
     cursor: pointer;
+}
+
+li>hr {
+    width: 90%;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 20px auto;
+
+    box-shadow: 0px 0px 1px 1px rgba(180,180,180,0.49);
+    -webkit-box-shadow: 0px 0px 1px 1px rgba(180,180,180,0.49);
+    -moz-box-shadow: 0px 0px 1px 1px rgba(180,180,180,0.49);
 }
