@@ -1,0 +1,12 @@
+.teal.darken-1 {
+    text-align: center !important;
+}
+
+.teal.darken-1 ul {
+    display: flex;
+    justify-content: center;
+}
+
+.search-button {
+    cursor: pointer;
+}
