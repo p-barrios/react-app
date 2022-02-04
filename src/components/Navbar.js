@@ -1,6 +1,7 @@
 import React from 'react';
 import '../assets/Navbar.css';
 import 'materialize-css/dist/css/materialize.min.css';
+import CartWidget from './CartWidget';
 
 function Navbar() {
   return (
@@ -11,7 +12,7 @@ function Navbar() {
             <a href="#!" data-target="mobile-icon" className="sidenav-trigger"><i className="material-icons">menu</i></a>
             <div className='right hide-on-med-and-down col s2 search-button' >
               <i className="material-icons">search</i>
-              <i className="material-icons">local_grocery_store</i>
+              <CartWidget elements="6"/>
               <i className="material-icons">account_circle</i>
             </div>
             <ul className="right hide-on-med-and-down col s8">
@@ -34,7 +35,7 @@ function Navbar() {
           <li>
             <div className='search-button'>
               <i className="material-icons">search</i>
-              <i className="material-icons">local_grocery_store</i>
+              <CartWidget elements="6"/>
               <i className="material-icons">account_circle</i>
             </div>
           </li>
