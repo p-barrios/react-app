@@ -15,10 +15,6 @@ const ItemCount = (props) => {
             setTotal(total-1)
     }
 
-    const addCart = () => {
-        props.onAdd(total)
-    }
-
     return (
         <>
             <h4>ItemCount</h4>
@@ -28,7 +24,8 @@ const ItemCount = (props) => {
                     <h6>{total}</h6>
                     <button onClick={Increment}>+</button>
                 </div>
-                <button onClick={addCart}>Agregar al carrito</button>
+
+                <button onClick={()=>props.onAdd(total)}>Agregar al carrito</button>
             </div>
         </>
     )
