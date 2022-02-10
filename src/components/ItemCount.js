@@ -6,13 +6,17 @@ const ItemCount = (props) => {
 
     const [total, setTotal] = useState(initial)
 
-    const increment = () => {
+    const Increment = () => {
         if(total<stock)
             setTotal(total+1)
     }
-    const decrement = () => {
+    const Decrement = () => {
         if(total>1)
-        setTotal(total-1)
+            setTotal(total-1)
+    }
+
+    const addCart = () => {
+        props.onAdd(total)
     }
 
     return (
@@ -20,11 +24,11 @@ const ItemCount = (props) => {
             <h4>ItemCount</h4>
             <div className="ItemCount">
                 <div className="contador">
-                    <button onClick={decrement}>-</button>
+                    <button onClick={Decrement}>-</button>
                     <h6>{total}</h6>
-                    <button onClick={increment}>+</button>
+                    <button onClick={Increment}>+</button>
                 </div>
-                <button>Agregar al carrito</button>
+                <button onClick={addCart}>Agregar al carrito</button>
             </div>
         </>
     )

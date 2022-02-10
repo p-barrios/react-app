@@ -45,7 +45,6 @@ li>hr {
 
 /* ItemCount */
 .ItemCount {
-    font-family: 'Poppins', sans-serif !important;
     width: 250px;
     height: auto;
     display: flex;
