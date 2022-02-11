@@ -4,58 +4,61 @@ import ItemList from "./ItemList";
 
 const ItemListContainer = (props) => {
 
+    const [list, setList] = useState([])
     const onAdd = (val) => {
         console.log('La cantidad de articulos elegida es: '+val);
     }
 
     const productList = [
         {
-        id: 30,
-        name: "Agua Con Gas 1,5 lts",
-        stock: 86,
-        cost: 45,
+            id: 30,
+            title: 'Agua con gas',
+            description: "Agua con Gas 1,5 lts",
+            price: 86,
+            pictureUrl: 'https://png.pngtree.com/png-vector/20191129/ourlarge/pngtree-bottle-of-mineral-water-vector-illustration-isolated-on-white-background-mineral-png-image_2025936.jpg',
         },
         {
-        id: 29,
-        name: "Agua Sin Gas 1,5 lts",
-        stock: 100,
-        cost: 140,
+            id: 31,
+            title: 'Agua sin gas',
+            description: "Agua sin Gas 1,5 lts",
+            price: 76,
+            pictureUrl: 'https://png.pngtree.com/png-vector/20191129/ourlarge/pngtree-bottle-of-mineral-water-vector-illustration-isolated-on-white-background-mineral-png-image_2025936.jpg',
         },
         {
-        id: 76,
-        name: "Alambrado Chardonnay 750 ml",
-        stock: 92,
-        cost: 575,
-        }
+            id: 32,
+            title: 'Agua saborizada sin gas',
+            description: "Agua saborizada sin Gas 1,5 lts",
+            price: 106,
+            pictureUrl: 'https://png.pngtree.com/png-vector/20191129/ourlarge/pngtree-bottle-of-mineral-water-vector-illustration-isolated-on-white-background-mineral-png-image_2025936.jpg',
+        },
+        {
+            id: 33,
+            title: 'Agua saborizada con gas',
+            description: "Agua saborizada Con Gas 1,5 lts",
+            price: 126,
+            pictureUrl: 'https://png.pngtree.com/png-vector/20191129/ourlarge/pngtree-bottle-of-mineral-water-vector-illustration-isolated-on-white-background-mineral-png-image_2025936.jpg',
+        },
     ]
 
     const customFetch = () => {
         return new Promise((resolve, reject) => {
-                if(productList)
+                if(productList){
                     resolve(productList)
+                }
                 else
                     reject('Error al cargar el productList')
         })
     }
 
-    const getData = () => {
-        customFetch()
+    useEffect(() => {
+        setTimeout(() => {
+            customFetch()
             .then((data) => {
-                return data
+                setList(data)
             })
             .catch((err) => {
                 console.log(err)
-                return err
             })
-    }
-
-    const [list, setList] = useState()
-
-    useEffect(() => {
-        setTimeout(() => {
-            let data = props.list
-            console.log(data)
-            setList(data)
         }, 2000)
     }, [])
 
@@ -64,9 +67,24 @@ const ItemListContainer = (props) => {
             <div className="container">
                 <p>ItemListContainer</p>
                 <hr/>
-                <ItemCount stock="5" initial="1" onAdd={onAdd}/>
+                <ItemList list={list}/>
+
+
+
+
+
+
+
+
+
+
+
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                 <hr/>
-                <ItemList list={getData()}/>
+                <ItemCount stock="5" initial="1" onAdd={onAdd}/>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             </div>
         </>
     )

@@ -79,3 +79,19 @@ li>hr {
     border-radius: 5px;
 }
 
+
+/* ItemList */
+.ItemList {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Item */
+.Item {
+    margin: 10px;
+}
+
+.Item .card-title{
+    color: black !important;
+    font-size: 18px !important;
+}
