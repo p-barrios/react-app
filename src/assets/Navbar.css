@@ -49,6 +49,7 @@ li>hr {
     height: auto;
     display: flex;
     flex-direction: column;
+    margin: auto;
 }
 
 .ItemCount .contador {
@@ -94,4 +95,45 @@ li>hr {
 .Item .card-title{
     color: black !important;
     font-size: 18px !important;
+}
+
+/* ItemDetail */
+
+.ItemDetail {
+    margin: 50px auto;
+}
+
+.ItemDetail .left img {
+    width: 400px;
+    border: 2px solid #ccc;
+    box-shadow: 0px 0px 1px 1px rgba(180,180,180,0.49);
+}
+
+.ItemDetail .right .code {
+    font-size: .7em;
+    text-align: right;
+    color: #999;
+}
+
+.ItemDetail .right .description {
+    font-size: 1em;
+    text-align: center;
+    color: #444;
+
+}
+
+.ItemDetail .right .price::before {
+    content:'$ ';
+}
+
+.ItemDetail .right .price {
+    text-align: center;
+    font-size: 2em;
+    color: #444;
+}
+
+.ItemDetail .right .stock {
+    text-align: center;
+    font-size: .9em;
+    color: #444;
 }

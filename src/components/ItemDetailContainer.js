@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react"
-import ItemList from "./ItemList";
 import productList from "../utils/dataHardcode"
 import customFetch from "../utils/customFetch"
+import ItemDetail from './ItemDetail'
 
-const ItemListContainer = () => {
 
-    const [list, setList] = useState({})
+const ItemDetailContainer = () => {
+
+    const [item, setItem] = useState({})
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        customFetch(productList, 2000)
+        customFetch(productList[3], 2000)
         .then((data) => {
-            setList(data)
+            setItem(data)
             setLoading(true)
         })
         .catch((err) => {
@@ -22,10 +23,10 @@ const ItemListContainer = () => {
     return (
         <>
             <div className="container">
-                <ItemList list={list} load={loading}/>
+                    <ItemDetail item={item} load={loading}/>
             </div>
         </>
     )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer

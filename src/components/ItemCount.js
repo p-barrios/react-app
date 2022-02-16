@@ -17,7 +17,6 @@ const ItemCount = (props) => {
 
     return (
         <>
-            <p>ItemCount</p>
             <div className="ItemCount">
                 <div className="contador">
                     <button onClick={Decrement}>-</button>
