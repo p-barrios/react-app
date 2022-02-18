@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom'
+
 const Item = (props) => {
+
     return(
         <>
             <div className="Item">
@@ -9,12 +12,10 @@ const Item = (props) => {
                             <img src={props.pictureUrl} alt="Test"/>
                         </div>
                         <div className="card-content">
-
-                        <h6>{props.title}</h6>
-                        <p>Description: {props.description}<br/>Price: {props.price}</p>
+                            <h6>{props.title}</h6>
                         </div>
                         <div className="card-action">
-                        <a href="!#">Ver detalles</a>
+                            <Link to={'/item/'+props.id}>Ver detalles</Link>
                         </div>
                     </div>
                     </div>

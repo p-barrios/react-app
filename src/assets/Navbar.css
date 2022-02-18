@@ -85,10 +85,13 @@ li>hr {
 .ItemList {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* Item */
 .Item {
+    max-width: 22%;
     margin: 10px;
 }
 

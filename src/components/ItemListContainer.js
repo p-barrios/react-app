@@ -2,27 +2,38 @@ import { useEffect, useState } from "react"
 import ItemList from "./ItemList";
 import productList from "../utils/dataHardcode"
 import customFetch from "../utils/customFetch"
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
 
     const [list, setList] = useState({})
-    const [loading, setLoading] = useState(false)
+
+    const { idCategory } = useParams()
 
     useEffect(() => {
-        customFetch(productList, 2000)
-        .then((data) => {
-            setList(data)
-            setLoading(true)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    }, [])
+        if ( idCategory === undefined ) {
+            customFetch(productList, 2000)
+                .then((data) => {
+                    setList(data)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        } else {
+            customFetch(productList.filter(item => item.categoryId === parseInt(idCategory)), 1000)
+                .then((data) => {
+                    setList(data)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+    }, [idCategory, list])
 
     return (
         <>
             <div className="container">
-                <ItemList list={list} load={loading}/>
+                <ItemList list={list}/>
             </div>
         </>
     )

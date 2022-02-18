@@ -2,31 +2,25 @@ import Item from "./Item"
 
 
 const ItemList = (props) => {
-    if (props.load === true) {
-        return(
-            <>
-                <div className="ItemList">
-                    {
-                        props.list.map( el =>
-                            <Item
-                                key = {el.id}
-                                title = {el.title}
-                                description = {el.description}
-                                price = {el.price}
-                                pictureUrl = {el.pictureUrl}
-                            />
-                        )
-                    }
-                </div>
-            </>
-        )
-    } else {
-        return (
-            <>
-                <p>Loading...</p>
-            </>
-        )
-    }
+    return(
+        <>
+            <div className="ItemList">
+                {
+                    props.list.length > 0 ?
+                    props.list.map( el =>
+                        <Item
+                            key = {el.id}
+                            id = {el.id}
+                            title = {el.title}
+                            description = {el.description}
+                            price = {el.price}
+                            pictureUrl = {el.pictureUrl}
+                        />
+                    ): <p>Loading...</p>
+                }
+            </div>
+        </>
+    )
 }
 
 export default ItemList
