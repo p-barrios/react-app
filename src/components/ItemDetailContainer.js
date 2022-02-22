@@ -8,7 +8,6 @@ import { useParams } from "react-router-dom";
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState({})
-    const [loading, setLoading] = useState(false)
 
     const {idItem} = useParams()
 
@@ -16,7 +15,6 @@ const ItemDetailContainer = () => {
         customFetch(productList.filter(item => item.id === parseInt(idItem)), 2000)
             .then((data) => {
                 setItem(data[0])
-                setLoading(true)
             })
             .catch((err) => {
                 console.log(err)
@@ -26,7 +24,7 @@ const ItemDetailContainer = () => {
     return (
         <>
             <div className="container">
-                    <ItemDetail item={item} load={loading}/>
+                    <ItemDetail item={item}/>
             </div>
         </>
     )

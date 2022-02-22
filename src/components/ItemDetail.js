@@ -1,16 +1,22 @@
 
 import ItemCount from "./ItemCount"
+import { useState } from "react"
+import { Link } from "react-router-dom"
 
 const ItemDetail = (props) => {
 
+    const [ itemCount, setItemCount ] = useState(0)
+
     const onAdd = (val) => {
-        console.log('La cantidad de articulos elegida es: '+val);
+        setItemCount(val)
     }
 
-    if (props.load === true) {
-        return (
-            <>
-                <div className="ItemDetail">
+
+    return (
+        <>
+        {
+            Object.entries(props.item).length !== 0
+            ?   <div className="ItemDetail">
                     <div className="left">
                         <img src={props.item.pictureUrl} alt=""/>
                     </div>
@@ -20,20 +26,18 @@ const ItemDetail = (props) => {
                         <p className="description">{props.item.description}</p>
                         <p className="price">{props.item.price}</p>
                         <p className="stock">Cantidad en stock: {props.item.units}</p>
-    
-                        <ItemCount stock={props.item.units} initial="1" onAdd={onAdd} />
-    
+                        {
+                            itemCount === 0 ?
+                            <ItemCount stock={props.item.units} initial="1" onAdd={ onAdd } />
+                            : <div className="btn-fin-compra"><Link to={'/cart'}>Finalizar Compra</Link></div>
+                        }
                     </div>
                 </div>
-            </>
-        )
-    } else {
-        return (
-            <>
-                <p>Loading...</p>
-            </>
-        )
-    }
+            : <p>Loading...</p>
+        }
+        </>
+    )
+
 }
 
 export default ItemDetail

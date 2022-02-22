@@ -62,7 +62,7 @@ li>hr {
     border-radius: 5px;
 }
 
-.ItemCount .contador button {
+.ItemCount .contador button{
     background-color: transparent;
     border: none;
     margin: auto 15px;
@@ -72,7 +72,7 @@ li>hr {
     font-size: 25px;
 }
 
-.ItemCount>button {
+.ItemCount>button{
     background-color: transparent;
     color: #00897b;
     border: 1px solid #00897b;
@@ -139,4 +139,18 @@ li>hr {
     text-align: center;
     font-size: .9em;
     color: #444;
+}
+
+.btn-fin-compra {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.btn-fin-compra>a {
+    background-color: #00897b;
+    color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px 30px;
+    border-radius: 5px;
+    margin: auto;
 }

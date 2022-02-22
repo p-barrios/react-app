@@ -8,6 +8,7 @@ import './App.css';
 import Navbar from './components/Navbar'
 import ItemListContainer from './components/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer'
+import Cart from './components/Cart';
 
 function App() {
   return (
@@ -43,6 +44,14 @@ function App() {
           element= {
             <>
               <h3>Page: Contact</h3>
+            </>
+          }
+        />
+        <Route
+          path='/cart'
+          element= {
+            <>
+              <Cart />
             </>
           }
         />
