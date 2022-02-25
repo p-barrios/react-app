@@ -1,0 +1,66 @@
+import { createContext,  useState } from "react";
+
+export const CartContext = createContext()
+
+
+const CartContextProvider = ({children}) => {
+
+    const [cartList, setCartList] = useState([])
+
+    const addItem = (item, quantity) => {
+        if(!isInCart(item.id)) {
+            setCartList([
+                ...cartList, {
+                    id: item.id,
+                    name: item.title,
+                    price: item.price,
+                    image: item.pictureUrl,
+                    qty: quantity
+                }
+            ])
+        } else {
+            // obtengo el valor actual de la propiedad qty del array
+            let val = cartList.filter(e => e.id === item.id)
+            let old_qty = val[0].qty
+            // genero una copia del array sin el elemento que modifico
+            const copyCartList = cartList.filter(i => i.id !== item.id)
+            // junto todo en un mismo array con la funcion set del state
+            setCartList([
+                ...copyCartList, {
+                    id: item.id,
+                    name: item.title,
+                    price: item.price,
+                    image: item.pictureUrl,
+                    qty: (quantity+old_qty)
+                }
+            ])
+        }
+    }
+
+    const removeItem = itemId => {
+        setCartList(cartList.filter(item => item.id !== itemId));
+    }
+
+    const clear = () => {
+        setCartList([])
+    }
+
+    const isInCart = id => {
+        let val = cartList.filter(item => item.id === id)
+        if ( val.length === 0 ) {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    return (
+        <>
+            <CartContext.Provider value={{cartList, addItem, removeItem, clear}}>
+                {children}
+            </CartContext.Provider>
+        </>
+    )
+}
+
+export default CartContextProvider
