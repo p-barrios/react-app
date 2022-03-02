@@ -20,7 +20,7 @@ const ItemListContainer = () => {
                     console.log(err)
                 })
         } else {
-            customFetch(productList.filter(item => item.categoryId === parseInt(idCategory)), 1000)
+            customFetch(productList.filter(item => item.categoryId === idCategory), 1000)
                 .then((data) => {
                     setList(data)
                 })
@@ -28,7 +28,7 @@ const ItemListContainer = () => {
                     console.log(err)
                 })
         }
-    }, [idCategory, list])
+    }, [idCategory])
 
     return (
         <>

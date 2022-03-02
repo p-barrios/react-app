@@ -3,7 +3,7 @@ const productList = [
         id: 30,
         title: 'Fotos Polaroid',
         description: "Fotos Polaroid",
-        categoryId: 1,
+        categoryId: 'impresiones',
         price: 86,
         pictureUrl: 'https://pablo-barrios.com.ar/resources/img/imp-01.jpeg',
         units: 250
@@ -12,7 +12,7 @@ const productList = [
         id: 31,
         title: 'Tarjetas Personales',
         description: "Tarjetas Personales",
-        categoryId: 1,
+        categoryId: 'impresiones',
         price: 76,
         pictureUrl: 'https://pablo-barrios.com.ar/resources/img/imp-02.jpeg',
         units: 650
@@ -21,7 +21,7 @@ const productList = [
         id: 32,
         title: 'Tags',
         description: "Impresion de tags perforados",
-        categoryId: 1,
+        categoryId: 'impresiones',
         price: 106,
         pictureUrl: 'https://pablo-barrios.com.ar/resources/img/imp-03.jpeg',
         units: 450
@@ -30,7 +30,7 @@ const productList = [
         id: 33,
         title: 'Guirnalda Polaroid',
         description: "Guirnalda Polaroid",
-        categoryId: 1,
+        categoryId: 'impresiones',
         price: 126,
         pictureUrl: 'https://pablo-barrios.com.ar/resources/img/imp-04.jpeg',
         units: 500
@@ -39,7 +39,7 @@ const productList = [
         id: 34,
         title: 'Invitaciones',
         description: "Invitaciones para eventos",
-        categoryId: 1,
+        categoryId: 'impresiones',
         price: 126,
         pictureUrl: 'https://pablo-barrios.com.ar/resources/img/imp-05.jpeg',
         units: 400
@@ -48,7 +48,7 @@ const productList = [
         id: 35,
         title: 'Mate de Ceramica',
         description: "Mate de ceramica",
-        categoryId: 2,
+        categoryId: 'sublimaciones',
         price: 126,
         pictureUrl: 'https://pablo-barrios.com.ar/resources/img/subli-01.jpeg',
         units: 600
@@ -57,7 +57,7 @@ const productList = [
         id: 36,
         title: 'Taza de Ceramica',
         description: "Taza de Ceramica",
-        categoryId: 2,
+        categoryId: 'sublimaciones',
         price: 126,
         pictureUrl: 'https://pablo-barrios.com.ar/resources/img/subli-02.jpeg',
         units: 750
@@ -66,7 +66,7 @@ const productList = [
         id: 37,
         title: 'Mate listo',
         description: "Mate listo",
-        categoryId: 2,
+        categoryId: 'sublimaciones',
         price: 126,
         pictureUrl: 'https://pablo-barrios.com.ar/resources/img/subli-03.jpeg',
         units: 650
@@ -75,7 +75,7 @@ const productList = [
         id: 38,
         title: 'Jarro térmico',
         description: "Jarro térmico",
-        categoryId: 2,
+        categoryId: 'sublimaciones',
         price: 126,
         pictureUrl: 'https://pablo-barrios.com.ar/resources/img/subli-04.jpeg',
         units: 650
@@ -84,7 +84,7 @@ const productList = [
         id: 39,
         title: 'Vaso térmico',
         description: "Vaso térmico",
-        categoryId: 2,
+        categoryId: 'sublimaciones',
         price: 126,
         pictureUrl: 'https://pablo-barrios.com.ar/resources/img/subli-05.jpeg',
         units: 500
@@ -93,8 +93,8 @@ const productList = [
         id: 40,
         title: 'Diseño Digital',
         description: "Consultar por servicio",
-        categoryId: 3,
-        price: 'depende del servicio',
+        categoryId: 'digital',
+        price: 0,
         pictureUrl: 'https://pablo-barrios.com.ar/resources/img/dis-01.jpg',
         units: 189
     },

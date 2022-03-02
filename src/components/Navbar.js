@@ -18,9 +18,9 @@ function Navbar() {
             </div>
             <ul className="right hide-on-med-and-down col s8">
               <li><Link to='/'>Inicio</Link></li>
-              <li><Link to='/category/1'>Impresiones</Link></li>
-              <li><Link to='/category/2'>Sublimaciones</Link></li>
-              <li><Link to='/category/3'>Diseño Digital</Link></li>
+              <li><Link to='/category/impresiones'>Impresiones</Link></li>
+              <li><Link to='/category/sublimaciones'>Sublimaciones</Link></li>
+              <li><Link to='/category/digital'>Diseño Digital</Link></li>
               <li><Link to='/contact'>Contacto</Link></li>
             </ul>
           </div>
@@ -28,9 +28,9 @@ function Navbar() {
 
         <ul className="sidenav" id="mobile-icon">
               <li><Link to='/'>Inicio</Link></li>
-              <li><Link to='/category/1'>Impresiones</Link></li>
-              <li><Link to='/category/2'>Sublimaciones</Link></li>
-              <li><Link to='/category/3'>Diseño Digital</Link></li>
+              <li><Link to='/category/impresiones'>Impresiones</Link></li>
+              <li><Link to='/category/sublimaciones'>Sublimaciones</Link></li>
+              <li><Link to='/category/digital'>Diseño Digital</Link></li>
               <li><Link to='/contact'>Contacto</Link></li>
           <li><hr/></li>
           <li>
