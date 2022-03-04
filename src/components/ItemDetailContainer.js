@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import productList from "../utils/dataHardcode"
-import customFetch from "../utils/customFetch"
 import ItemDetail from './ItemDetail'
 import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import db from '../utils/FirebaseConfig'
 
 
 const ItemDetailContainer = () => {
@@ -12,13 +12,17 @@ const ItemDetailContainer = () => {
     const {idItem} = useParams()
 
     useEffect(() => {
-        customFetch(productList.filter(item => item.id === parseInt(idItem)), 2000)
-            .then((data) => {
-                setItem(data[0])
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+        const docRef = doc(db, "productList", idItem);
+        const firestoreFetch = async () => {
+            const docSnap = await getDoc(docRef);
+            return {
+                id: docSnap.id,
+                ...docSnap.data()
+            }
+        }
+        firestoreFetch()
+            .then(result => setItem(result))
+            .catch(error => console.log(error))
     }, [idItem])
 
     return (

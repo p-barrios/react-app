@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList";
-import productList from "../utils/dataHardcode"
-import customFetch from "../utils/customFetch"
 import { useParams } from "react-router-dom";
+import db from '../utils/FirebaseConfig';
+import { collection, getDocs } from "firebase/firestore";
 
 const ItemListContainer = () => {
 
@@ -11,24 +11,45 @@ const ItemListContainer = () => {
     const { idCategory } = useParams()
 
     useEffect(() => {
-        if ( idCategory === undefined ) {
-            customFetch(productList, 2000)
-                .then((data) => {
-                    setList(data)
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
-        } else {
-            customFetch(productList.filter(item => item.categoryId === idCategory), 1000)
-                .then((data) => {
-                    setList(data)
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
+        // if ( idCategory === undefined ) {
+        //     customFetch(productList, 2000)
+        //         .then((data) => {
+        //             setList(data)
+        //         })
+        //         .catch((err) => {
+        //             console.log(err)
+        //         })
+        // } else {
+        //     customFetch(productList.filter(item => item.categoryId === idCategory), 1000)
+        //         .then((data) => {
+        //             setList(data)
+        //         })
+        //         .catch((err) => {
+        //             console.log(err)
+        //         })
+        // }
+
+        const firestoreFetch = async () => {
+            const querySnapshot = await getDocs(collection(db, "productList"));
+            return querySnapshot.docs.map( document => ({
+                id:document.id,
+                ...document.data()
+            }))
         }
-    }, [idCategory])
+
+        if(idCategory === undefined) {
+            firestoreFetch()
+                .then(result => setList(result))
+                .catch (error => {console.log(error);})
+        } else {
+            firestoreFetch()
+                .then(result => {
+                    const filterResult = result.filter(item => item.categoryId === idCategory)
+                    setList(filterResult)
+                })
+                .catch (error => {console.log(error);})
+        }
+    }, [list])
 
     return (
         <>

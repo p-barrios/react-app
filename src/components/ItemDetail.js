@@ -14,8 +14,7 @@ const ItemDetail = (props) => {
         setItemCount(val)
         cartList.addItem(props.item, val)
     }
-
-
+    
     return (
         <>
         {
