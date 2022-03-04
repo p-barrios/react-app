@@ -11,24 +11,6 @@ const ItemListContainer = () => {
     const { idCategory } = useParams()
 
     useEffect(() => {
-        // if ( idCategory === undefined ) {
-        //     customFetch(productList, 2000)
-        //         .then((data) => {
-        //             setList(data)
-        //         })
-        //         .catch((err) => {
-        //             console.log(err)
-        //         })
-        // } else {
-        //     customFetch(productList.filter(item => item.categoryId === idCategory), 1000)
-        //         .then((data) => {
-        //             setList(data)
-        //         })
-        //         .catch((err) => {
-        //             console.log(err)
-        //         })
-        // }
-
         const firestoreFetch = async () => {
             const querySnapshot = await getDocs(collection(db, "productList"));
             return querySnapshot.docs.map( document => ({
@@ -49,7 +31,7 @@ const ItemListContainer = () => {
                 })
                 .catch (error => {console.log(error);})
         }
-    }, [list])
+    }, [idCategory])
 
     return (
         <>
