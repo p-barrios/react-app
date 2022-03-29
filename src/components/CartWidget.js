@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useContext } from 'react'
 import { CartContext } from './CartContext'
 
-const CartWidget = (props) => {
+const CartWidget = () => {
 
     const cartContext = useContext(CartContext)
 

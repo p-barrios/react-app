@@ -6,8 +6,6 @@ export const CartContext = createContext()
 const CartContextProvider = ({children}) => {
 
     const [cartList, setCartList] = useState([])
-    
-
     const addItem = (item, quantity) => {
         if(!isInCart(item.id)) {
             setCartList([
@@ -20,12 +18,9 @@ const CartContextProvider = ({children}) => {
                 }
             ])
         } else {
-            // obtengo el valor actual de la propiedad qty del array
             let val = cartList.filter(e => e.id === item.id)
             let old_qty = val[0].qty
-            // genero una copia del array sin el elemento que modifico
             const copyCartList = cartList.filter(i => i.id !== item.id)
-            // junto todo en un mismo array con la funcion set del state
             setCartList([
                 ...copyCartList, {
                     id: item.id,

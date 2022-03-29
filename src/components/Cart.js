@@ -27,7 +27,6 @@ const Cart = () => {
             }),
             total: cartList.priceTotal()
         }
-        console.log(order)
 
         const createOrderInFirestore = async () =>  {
             const newOrderRef = doc(collection (db, 'orders'));
@@ -100,7 +99,7 @@ const Cart = () => {
     } else {
         return(
             <WrapperCart>
-                <TitleCart>YOUR CART IS EMPTY</TitleCart>
+                <TitleCart>SU CARRITO ESTA VACIO</TitleCart>
                 <Link to={'/'}><button className="btn-principal">Ir a comprar</button></Link>
             </WrapperCart>
         )
