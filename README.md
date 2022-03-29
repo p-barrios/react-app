@@ -53,9 +53,9 @@ npm run deploy
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
 
-* [ReactJS](http://www.dropwizard.io/1.0.2/docs/) - ReactJS
-* [Firebase](https://maven.apache.org/) - Firebase
-* [npm](https://rometools.github.io/rome/) - NPM
+* [ReactJS](https://es.reactjs.org/) - ReactJS
+* [Firebase](https://firebase.google.com/) - Firebase
+* [npm](https://www.npmjs.com/) - NPM
 
 ## Autores ✒️
 
